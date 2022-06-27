@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/layout/activity_main.xml" value="0.3364102564102564" />
+        <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/drawable/ic_baseline_play_arrow_24.xml" value="0.2225" />
+        <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/layout/activity_landing.xml" value="0.215625" />
+        <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/layout/activity_splash.xml" value="0.18" />
+        <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/layout/fragment_landing_page2.xml" value="0.215625" />
+        <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/layout/fragment_landing_page3.xml" value="0.215625" />
+        <entry key="..\:/Users/Yongz/AndroidStudioProjects/ChallengeChapter6Kelompok3/app/src/main/res/layout/fragment_landing_page_1.xml" value="0.215625" />
       </map>
     </option>
   </component>
