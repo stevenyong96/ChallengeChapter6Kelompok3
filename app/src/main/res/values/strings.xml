@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ChallengeChapter6Kelompok3</string>
+    <string name="cover">Cover</string>
+    <string name="item_desc">Adidas Raptor</string>
+    <string name="price">Rp 750.000</string>
 </resources>
