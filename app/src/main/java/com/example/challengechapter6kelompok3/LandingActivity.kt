@@ -14,7 +14,7 @@ import com.example.challengechapter6kelompok3.fragment.LandingPage2Fragment
 import com.example.challengechapter6kelompok3.fragment.LandingPage3Fragment
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
-class LandingActivity: AppCompatActivity() , LandingPage3Fragment.UserNameInputListener {
+class LandingActivity: AppCompatActivity()  {
 
     lateinit var  viewPager : ViewPager
     lateinit var dotIndicator : DotsIndicator
@@ -57,8 +57,8 @@ class LandingActivity: AppCompatActivity() , LandingPage3Fragment.UserNameInputL
             }
 
             override fun onPageSelected(position: Int) {
-                if(position == 1 || position == 0|| namaUser.isNotEmpty()) imgNext.visibility = View.VISIBLE
-                else imgNext.visibility = View.GONE
+                if(position == 1 || position == 0|| namaUser.isNotEmpty()) imgNext.visibility = View.GONE
+                else imgNext.visibility = View.VISIBLE
             }
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -84,8 +84,8 @@ class LandingActivity: AppCompatActivity() , LandingPage3Fragment.UserNameInputL
     var listener: OnSendDataToFragment? = null
 
 
-    override fun afterUserInputName(input: String) {
-        if(input.isNotEmpty()) imgNext.visibility = View.VISIBLE else imgNext.visibility = View.GONE
-        namaUser = input
-    }
+//    override fun afterUserInputName(input: String) {
+//        if(input.isNotEmpty()) imgNext.visibility = View.VISIBLE else imgNext.visibility = View.GONE
+//        namaUser = input
+//    }
 }

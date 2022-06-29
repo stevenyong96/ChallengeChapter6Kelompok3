@@ -54,12 +54,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="390dp"
-        android:layout_height="225dp"
-        android:layout_marginTop="20dp"
+        android:id="@+id/rv_list_item"
+        android:layout_width="393dp"
+        android:layout_height="393dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_view" />
 

@@ -22,27 +22,27 @@ class LandingPage3Fragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_landing_page3, container, false)
 
-        etName = view.findViewById(R.id.et_name)
-
-        etName.addTextChangedListener {
-            listener?.afterUserInputName(it.toString())
-        }
+//        etName = view.findViewById(R.id.et_name)
+//
+//        etName.addTextChangedListener {
+//            listener?.afterUserInputName(it.toString())
+//        }
 
         return view
     }
 
-    var listener: UserNameInputListener? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        if (context is UserNameInputListener) {
-            listener = context
-        }
-    }
-
-    interface UserNameInputListener {
-        fun afterUserInputName(input: String)
-    }
+//    var listener: UserNameInputListener? = null
+//
+//    override fun onAttach(context: Context) {
+//        super.onAttach(context)
+//
+//        if (context is UserNameInputListener) {
+//            listener = context
+//        }
+//    }
+//
+//    interface UserNameInputListener {
+//        fun afterUserInputName(input: String)
+//    }
 
 }
