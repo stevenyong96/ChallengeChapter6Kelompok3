@@ -5,4 +5,11 @@
         <item name="cornerSize">20dp</item>
         <item name="color">@color/white</item>
     </style>
+
+    <style name="card_image_view" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+        <item name="color">@color/white</item>
+        <item name="backgroundColor">@color/red</item>
+    </style>
 </resources>

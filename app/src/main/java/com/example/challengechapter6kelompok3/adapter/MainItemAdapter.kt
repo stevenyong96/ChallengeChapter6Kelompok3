@@ -1,11 +1,13 @@
 package com.example.challengechapter6kelompok3.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.challengechapter6kelompok3.databinding.CardItemLinearBinding
 import com.example.challengechapter6kelompok3.model.DataMain
+import com.tbuonomo.viewpagerdotsindicator.setBackgroundCompat
 
 class MainItemAdapter(private val listItem: ArrayList<DataMain>, val onItemStoreClick: (DataMain) -> Unit) : RecyclerView.Adapter<MainItemAdapter.ViewHolder>() {
 
@@ -16,6 +18,7 @@ class MainItemAdapter(private val listItem: ArrayList<DataMain>, val onItemStore
                 dataMainBinding.tvTitle.text = dataMain.itemDesc
                 dataMainBinding.tvPrice.text = dataMain.itemPrice.toString()
                 Glide.with(itemView.context).load(dataMain.itemImage).into(dataMainBinding.ivCover)
+                dataMainBinding.layoutCardItemLinear.setBackgroundColor(Color.parseColor(dataMain.itemColor));
             }
         }
 

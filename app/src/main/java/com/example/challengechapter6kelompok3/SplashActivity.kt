@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.challengechapter6kelompok3.model.DataSplash
-import com.example.challengechapter6kelompok3.presenter.SplashPresenster
+import com.example.challengechapter6kelompok3.presenter.SplashPresenterImp
 import com.example.challengechapter6kelompok3.presenter.SplashView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +20,7 @@ class SplashActivity : AppCompatActivity() , SplashView {
         val localVer = "1.0.0"
         val currentVer = "1.0.0" //get from api version later
 
-        val presenter = SplashPresenster(this)
+        val presenter = SplashPresenterImp(this)
         presenter.checkVersion(localVer,currentVer)
 
         CoroutineScope(Dispatchers.Main).launch {
