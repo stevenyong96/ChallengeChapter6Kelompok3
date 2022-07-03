@@ -37,6 +37,7 @@ class LandingActivity: AppCompatActivity()  {
             viewPager.currentItem = currentIndex+1
 
             if(currentIndex == 2) {
+                SharedPrefManager.setIsLandingPageShown(this,true)
                 val intentToHome = Intent(this, MainActivity::class.java)
                 intentToHome.putExtra("DATA_USER_NAME", namaUser)
                 startActivity(intentToHome)
@@ -83,6 +84,11 @@ class LandingActivity: AppCompatActivity()  {
 
     var listener: OnSendDataToFragment? = null
 
+    companion object{
+        const val KEY_ID_USER = "user_data_id"
+        const val KEY_NAMA_USER= "user_data_name"
+        const val KEY_IS_LANDING_PAGE_SHOWN = "user_data_landing_page_shown"
+    }
 
 //    override fun afterUserInputName(input: String) {
 //        if(input.isNotEmpty()) imgNext.visibility = View.VISIBLE else imgNext.visibility = View.GONE

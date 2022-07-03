@@ -22,11 +22,19 @@ class SplashActivity : AppCompatActivity() , SplashView {
 
         val presenter = SplashPresenterImp(this)
         presenter.checkVersion(localVer,currentVer)
+        val isLandingPageShown = SharedPrefManager.getIsLandingPageShown(this)
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(3000L)
-            startActivity(Intent(this@SplashActivity, LandingActivity::class.java))
-            finish()
+            if(isLandingPageShown){
+                startActivity(Intent(this@SplashActivity, LandingActivity::class.java))
+                finish()
+            }
+            else{
+                startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+                finish()
+            }
+
         }
     }
 

@@ -10,7 +10,7 @@ object SharedPrefManager {
     private const val KEY_ID_USER = "user_data_id"
     private const val KEY_NAMA_USER = "user_data_name"
 
-    private const val KEY_IS_ONBOARDING_SHOWN = "user_data_onboarding_shown"
+    private const val KEY_IS_LANDING_PAGE_SHOWN = "user_data_landing_page_shown"
 
     private fun getSharedPref(context: Context) : SharedPreferences {
         return context.getSharedPreferences(SHARED_PREF_FILENAME, 0)
@@ -37,14 +37,14 @@ object SharedPrefManager {
     }
 
 
-    fun setIsOnBoardingShown(context: Context, isShown : Boolean) {
+    fun setIsLandingPageShown(context: Context, isShown : Boolean) {
         val editor = getSharedPref(context).edit()
-        editor.putBoolean(KEY_IS_ONBOARDING_SHOWN, isShown)
+        editor.putBoolean(KEY_IS_LANDING_PAGE_SHOWN, isShown)
         editor.apply()
     }
 
-    fun getIsOnBoardingShown(context: Context) : Boolean{
-        return getSharedPref(context).getBoolean(KEY_IS_ONBOARDING_SHOWN, false)
+    fun getIsLandingPageShown(context: Context) : Boolean{
+        return getSharedPref(context).getBoolean(KEY_IS_LANDING_PAGE_SHOWN, false)
     }
 
 }
