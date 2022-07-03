@@ -1,6 +1,7 @@
 package com.example.challengechapter6kelompok3
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -47,6 +48,12 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Item di click : ${it.itemDesc}", Toast.LENGTH_SHORT).show()
         }
         binding.rvListItem.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        binding.ivNavMenuBar.setOnClickListener {
+            SharedPrefManager.setIsLandingPageShown(this,true)
+            val intentToLogin = Intent(this, LoginActivity::class.java)
+            startActivity(intentToLogin)
+        }
 
     }
 

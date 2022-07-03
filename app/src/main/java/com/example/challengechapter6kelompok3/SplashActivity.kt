@@ -23,6 +23,7 @@ class SplashActivity : AppCompatActivity() , SplashView {
         val presenter = SplashPresenterImp(this)
         presenter.checkVersion(localVer,currentVer)
         val isLandingPageShown = SharedPrefManager.getIsLandingPageShown(this)
+        Log.d(SplashActivity::class.simpleName,"Splash : ${isLandingPageShown}")
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(3000L)

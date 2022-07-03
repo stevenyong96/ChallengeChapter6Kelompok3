@@ -20,8 +20,6 @@ class LandingActivity: AppCompatActivity()  {
     lateinit var dotIndicator : DotsIndicator
     lateinit var imgNext : ImageView
 
-    var namaUser = ""
-
     override  fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_landing)
@@ -38,8 +36,7 @@ class LandingActivity: AppCompatActivity()  {
 
             if(currentIndex == 2) {
                 SharedPrefManager.setIsLandingPageShown(this,true)
-                val intentToHome = Intent(this, MainActivity::class.java)
-                intentToHome.putExtra("DATA_USER_NAME", namaUser)
+                val intentToHome = Intent(this, LoginActivity::class.java)
                 startActivity(intentToHome)
             }
 
@@ -58,7 +55,7 @@ class LandingActivity: AppCompatActivity()  {
             }
 
             override fun onPageSelected(position: Int) {
-                if(position == 1 || position == 0|| namaUser.isNotEmpty()) imgNext.visibility = View.GONE
+                if(position == 1 || position == 0) imgNext.visibility = View.GONE
                 else imgNext.visibility = View.VISIBLE
             }
 
