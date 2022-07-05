@@ -30,5 +30,7 @@
         <activity android:name=".LoginActivity" android:windowSoftInputMode="adjustResize" android:theme="@style/AppTheme.Splash"/>
         <activity android:name=".AddUserActivity" android:windowSoftInputMode="adjustResize" android:theme="@style/AppTheme.Splash"/>
         <activity android:name=".UserActivity" android:windowSoftInputMode="adjustResize" android:theme="@style/AppTheme.Splash"/>
+        <activity android:name=".ItemDetailActivity" android:windowSoftInputMode="adjustResize" android:theme="@style/AppTheme.Splash"/>
+        <activity android:name=".CheckoutPaymentActivity" android:windowSoftInputMode="adjustResize" android:theme="@style/AppTheme.Splash"/>
     </application>
 </manifest>

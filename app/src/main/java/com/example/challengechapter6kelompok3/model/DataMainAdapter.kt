@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.challengechapter6kelompok3.R
 
 class DataMainAdapter(private val itemList : List<DataMain>) {
-    class itemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val itemImageView: ImageView = itemView.findViewById(R.id.cover)
-        val itemDescText : TextView = itemView.findViewById(R.id.title)
-        val itemPrice: TextView = itemView.findViewById(R.id.price)
-    }
+//    class itemViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
+//        val itemImageView: ImageView = itemView.findViewById(R.id.cover)
+//        val itemDescText : TextView = itemView.findViewById(R.id.title)
+//        val itemPrice: TextView = itemView.findViewById(R.id.price)
+//    }
 
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder
 //    {
