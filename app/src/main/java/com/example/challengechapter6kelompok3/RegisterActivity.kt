@@ -25,6 +25,10 @@ class RegisterActivity: AppCompatActivity() {
 
         dataBase = UserDatabase.getInstance(this)
 
+        binding.ivBack.setOnClickListener {
+            startActivity(intentToLogin)
+        }
+
         binding.btnSubmit.setOnClickListener {
             GlobalScope.async {
                 var username = binding.etUsername.text.toString()
@@ -40,11 +44,11 @@ class RegisterActivity: AppCompatActivity() {
                 val result = dataBase?.userDao()?.insertUser(usersEntity)
                 Log.d(RegisterActivity::class.simpleName,"Result Add User: " + result.toString())
                 runOnUiThread {
-                    if(result != 0.toLong()) {
-                        binding.etUsername.setText("")
-                        binding.etPassword.setText("")
-                        binding.etName.setText("")
-                        binding.etEmail.setText("")
+                    if(result != 0.toLong() && result != -1.toLong()) {
+//                        binding.etUsername.setText("")
+//                        binding.etPassword.setText("")
+//                        binding.etName.setText("")
+//                        binding.etEmail.setText("")
                         Toast.makeText(
                             this@RegisterActivity,
                             "Insert User Success for ${username}",

@@ -27,4 +27,10 @@ interface CartDao {
     @Query("SELECT sum(item_price * item_qty) FROM Carts")
     fun getTotalPayment(): Long
 
+    @Query("UPDATE Carts SET item_qty = :par_item_qty WHERE item_name = :par_item_name")
+    fun updateQtyItem(par_item_name : String ? = "" , par_item_qty : Int ?=0): Int
+
+    @Query("DELETE FROM Carts")
+    fun deleteAllCart(): Int
+
 }

@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.challengechapter6kelompok3.fragment.LandingPage1Fragment
 import com.example.challengechapter6kelompok3.fragment.LandingPage2Fragment
 import com.example.challengechapter6kelompok3.fragment.LandingPage3Fragment
+import com.example.challengechapter6kelompok3.presenter.LandingView
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 
 class LandingActivity: AppCompatActivity()  {
@@ -35,7 +36,7 @@ class LandingActivity: AppCompatActivity()  {
             viewPager.currentItem = currentIndex+1
 
             if(currentIndex == 2) {
-                SharedPrefManager.setIsLandingPageShown(this,true)
+                SharedPrefManager.setIsLandingPageShown(this,false)
                 val intentToHome = Intent(this, LoginActivity::class.java)
                 startActivity(intentToHome)
             }

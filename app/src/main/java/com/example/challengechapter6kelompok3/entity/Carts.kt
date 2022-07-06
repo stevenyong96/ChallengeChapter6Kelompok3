@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "Carts")
+@Entity(tableName = "Carts",indices = [androidx.room.Index(value = ["item_name"])])
 @Parcelize
 data class Carts(
     @ColumnInfo(name = "item_name") var item_name: String?= "",

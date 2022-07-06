@@ -9,7 +9,7 @@
         android:id="@+id/imageView4"
         android:layout_width="39dp"
         android:layout_height="38dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,11 +43,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="368dp"
-        android:layout_height="264dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="386dp"
+        android:layout_height="258dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/shape_visa"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_add">
 
@@ -74,15 +75,66 @@
             android:id="@+id/textView11"
             android:layout_width="305dp"
             android:layout_height="52dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="32dp"
             android:text="1234 **** **** 5234"
-            android:textStyle="bold"
+            android:textAlignment="textEnd"
             android:textColor="@color/white"
             android:textSize="28sp"
-            android:textAlignment="textEnd"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.746"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="81dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/chip" />
+
+        <TextView
+            android:id="@+id/tv_customer"
+            android:layout_width="205dp"
+            android:layout_height="45dp"
+            android:text="Kobo Kanaeru"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/tv_expired"
+            android:layout_width="72dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="16dp"
+            android:text="09/25"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_customer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="57dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="VALID THRU"
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_expired"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button

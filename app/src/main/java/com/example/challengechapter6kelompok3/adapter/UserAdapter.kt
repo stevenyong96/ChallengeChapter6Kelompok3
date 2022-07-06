@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.challengechapter6kelompok3.RegisterActivity
 import com.example.challengechapter6kelompok3.UserActivity
 import com.example.challengechapter6kelompok3.database.UserDatabase
 import com.example.challengechapter6kelompok3.databinding.ActivityUserBinding
@@ -14,8 +15,7 @@ import com.example.challengechapter6kelompok3.entity.Users
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class UserAdapter(private val listUsers: List<Users>) :
-    RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+class UserAdapter(private val listUsers: List<Users>) : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -39,15 +39,15 @@ class UserAdapter(private val listUsers: List<Users>) :
                             val result = database?.userDao()?.deleteUser(item)
 
 
-                            (binding.root.context as UserActivity).runOnUiThread {
+                            (binding.root.context as RegisterActivity).runOnUiThread {
                                 if (result != 0) {
                                     Toast.makeText(
-                                        it.context, "Data ${item.nama} berhasil dihapus",
+                                        it.context, "Data ${item.username} berhasil dihapus",
                                         Toast.LENGTH_LONG
                                     ).show()
                                 } else {
                                     Toast.makeText(
-                                        it.context, "Data ${item.nama} Gagal dihapus",
+                                        it.context, "Data ${item.username} Gagal dihapus",
                                         Toast.LENGTH_LONG
                                     ).show()
                                 }
@@ -56,7 +56,7 @@ class UserAdapter(private val listUsers: List<Users>) :
                         }
                     }.setNegativeButton("Tidak") { p0, p1 ->
                         p0.dismiss()
-                    }.setMessage("Apakah Anda Yakin ingin menghapus data ${item.nama}")
+                    }.setMessage("Apakah Anda Yakin ingin menghapus data ${item.username}")
                     .setTitle("Konfirmasi Hapus").create()
                     .show()
 
@@ -73,7 +73,7 @@ class UserAdapter(private val listUsers: List<Users>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item: Users = listUsers[position]
-        holder.bind(item, item)
+        holder.bind(item,item)
     }
 
     override fun getItemCount(): Int {

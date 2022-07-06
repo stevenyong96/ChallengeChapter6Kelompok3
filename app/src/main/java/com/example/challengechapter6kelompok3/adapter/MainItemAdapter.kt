@@ -17,7 +17,6 @@ fun concat(s1: String, s2: String): String {
 
 class MainItemAdapter(private val listItem: ArrayList<DataMain>, val onItemStoreClick: (DataMain) -> Unit) : RecyclerView.Adapter<MainItemAdapter.ViewHolder>() {
 
-
         class ViewHolder(private val dataMainBinding : CardItemLinearBinding) : RecyclerView.ViewHolder(dataMainBinding.root) {
             fun bind(dataMain : DataMain) {
 
