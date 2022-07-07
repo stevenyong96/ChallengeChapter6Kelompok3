@@ -27,6 +27,10 @@ class ItemDetailActivity : AppCompatActivity() ,ItemDetailView{
     lateinit var binding: ActivityItemDetailBinding
     lateinit var presenter: ItemDetailPresenterImp
     var dataBase : CartDatabase? = null
+    var itemName : String ? = ""
+    var itemPrice : String ? = ""
+    var itemColor : String ? = ""
+    var itemImage : String ? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,12 +40,11 @@ class ItemDetailActivity : AppCompatActivity() ,ItemDetailView{
         presenter = ItemDetailPresenterImp(this)
 
         dataBase = CartDatabase.getInstance(this)
-
-        val itemName = intent.getStringExtra("KEY_ITEM_NAME")
-        val itemPrice = intent.getStringExtra("KEY_ITEM_PRICE")
-        val itemColor = intent.getStringExtra("KEY_ITEM_COLOR")
-        val itemImage = intent.getStringExtra("KEY_ITEM_IMAGE")
-        val tempUsername = intent.getStringExtra("DATA_USER_USERNAME")
+         itemName= intent.getStringExtra("KEY_ITEM_NAME")
+         itemPrice = intent.getStringExtra("KEY_ITEM_PRICE")
+         itemColor = intent.getStringExtra("KEY_ITEM_COLOR")
+         itemImage = intent.getStringExtra("KEY_ITEM_IMAGE")
+         var tempUsername = intent.getStringExtra("DATA_USER_USERNAME")
 
         binding.tvItemName.setText(itemName)
         val formatter: NumberFormat = DecimalFormat("#,###")
@@ -71,7 +74,14 @@ class ItemDetailActivity : AppCompatActivity() ,ItemDetailView{
                 val result = dataBase?.cartDao()?.checkCart(itemName)
                 runOnUiThread {
                     if(result == 0.toLong()) {
-                        insItemDetail(itemName,itemPrice,itemColor,itemImage)
+                        itemName?.let { it1 -> itemPrice?.let { it2 ->
+                            itemColor?.let { it3 ->
+                                itemImage?.let { it4 ->
+                                    presenter.insItemDetail(it1,
+                                        it2, it3, it4,this@ItemDetailActivity)
+                                }
+                            }
+                        } }
                     }
                     else{
                         Toast.makeText(
@@ -85,27 +95,27 @@ class ItemDetailActivity : AppCompatActivity() ,ItemDetailView{
         }
     }
 
-    fun insItemDetail(param_item_name:String ?= "",param_item_price: String ?="0",paramItemColor: String?="" , param_item_image: String ? =""){
-        val cartEntity = Carts(param_item_name,"",param_item_price?.toInt(),paramItemColor,param_item_image,1)
-        GlobalScope.async {
-            val result = dataBase?.cartDao()?.insertCart(cartEntity)
-            runOnUiThread {
-                if(result != 0.toLong()) {
-                    Toast.makeText(
-                        this@ItemDetailActivity,
-                        "Sukses menambahkan ${param_item_name}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    Toast.makeText(
-                        this@ItemDetailActivity,
-                        "Gagal menambahkan ${param_item_name}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-        }
-    }
+//    fun insItemDetail(param_item_name:String ?= "",param_item_price: String ?="0",paramItemColor: String?="" , param_item_image: String ? =""){
+//        val cartEntity = Carts(param_item_name,"",param_item_price?.toInt(),paramItemColor,param_item_image,1)
+//        GlobalScope.async {
+//            val result = dataBase?.cartDao()?.insertCart(cartEntity)
+//            runOnUiThread {
+//                if(result != 0.toLong()) {
+//                    Toast.makeText(
+//                        this@ItemDetailActivity,
+//                        "Sukses menambahkan ${param_item_name}",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                } else {
+//                    Toast.makeText(
+//                        this@ItemDetailActivity,
+//                        "Gagal menambahkan ${param_item_name}",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//            }
+//        }
+//    }
 
 
 }

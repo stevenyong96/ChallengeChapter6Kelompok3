@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() , MainView {
 
         val tempUsername = intent.getStringExtra("DATA_USER_USERNAME")
         presenter = MainPresenterImp(this)
+        var tempData = presenter.getDummyData()
 
 //        var drawerLayout = bindingMenu.drawerLayout
 //        var toolBar = binding.ivNavMenuBar
@@ -61,9 +62,10 @@ class MainActivity : AppCompatActivity() , MainView {
 //
 //        viewModel = ViewModelProvider(this, myViewModelFactory).get(MainViewModel::class.java)
 
+        binding.tvCustomer.setText(tempUsername)
 
         //step 4 implement recyclerview, set adapter ke recyclerview dan set layoutmanager
-        binding.rvListItem.adapter = MainItemAdapter(getDummyData()) {
+        binding.rvListItem.adapter = MainItemAdapter(tempData) {
             Toast.makeText(this, "Item di click : ${it.itemDesc}", Toast.LENGTH_SHORT).show()
             var intentToItemDetail= Intent(this,ItemDetailActivity::class.java)
             intentToItemDetail.putExtra("KEY_ITEM_NAME", it.itemDesc)
@@ -95,7 +97,8 @@ class MainActivity : AppCompatActivity() , MainView {
             DataMain("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_backpack.png", "Adidas Raptor", 750000,"#FF233D"),
             DataMain("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_nmd.png", "Adidas NMD1", 2850000,"#F5CA7B"),
             DataMain("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/nike_jacket.png", "Nike Jacket", 300000,"#EEEE9B"),
-            DataMain("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/divo_backpack.png", "Backpack", 950000,"#98fb98"),
+            DataMain("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/divo_backpack.png", "Divo Backpack", 950000,"#98fb98"),
+            DataMain("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/sepatu_nike.png", "Sepatu Nike Kobe", 2500000,"#AF8FE9"),
         )
     }
 

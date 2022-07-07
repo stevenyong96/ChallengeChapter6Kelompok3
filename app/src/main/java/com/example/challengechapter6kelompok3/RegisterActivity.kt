@@ -8,18 +8,23 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.challengechapter6kelompok3.database.UserDatabase
 import com.example.challengechapter6kelompok3.databinding.ActivityAddUserBinding
 import com.example.challengechapter6kelompok3.entity.Users
+import com.example.challengechapter6kelompok3.presenter.MainPresenterImp
+import com.example.challengechapter6kelompok3.presenter.RegisterPresenterImp
+import com.example.challengechapter6kelompok3.presenter.RegisterView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-class RegisterActivity: AppCompatActivity() {
+class RegisterActivity: AppCompatActivity(), RegisterView {
     lateinit var binding: ActivityAddUserBinding
     var dataBase : UserDatabase? = null
+    lateinit var presenter: RegisterPresenterImp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityAddUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        presenter = RegisterPresenterImp(this)
 
         val intentToLogin = Intent(this, LoginActivity::class.java)
 

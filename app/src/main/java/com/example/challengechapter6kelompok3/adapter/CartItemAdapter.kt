@@ -12,11 +12,13 @@ import com.bumptech.glide.Glide
 import com.example.challengechapter6kelompok3.CartTokpeeActivity
 import com.example.challengechapter6kelompok3.R
 import com.example.challengechapter6kelompok3.database.CartDatabase
+import com.example.challengechapter6kelompok3.databinding.ActivityAddUserBinding.inflate
 import com.example.challengechapter6kelompok3.databinding.ActivityCartTokpeeBinding
 import com.example.challengechapter6kelompok3.databinding.CardItemCartBinding
 import com.example.challengechapter6kelompok3.entity.Carts
 import com.example.challengechapter6kelompok3.model.DataCart
 import com.example.challengechapter6kelompok3.model.DataMain
+import com.example.challengechapter6kelompok3.presenter.CartTokpeePresenterImp
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.security.AccessController.getContext
@@ -168,7 +170,7 @@ class CartItemAdapter(private val listItem: List<Carts>) : RecyclerView.Adapter<
 
         override fun onBindViewHolder(holder: ViewHolderCart, position: Int) {
             val item : Carts = listItem[position]
-            val onItemStoreClick: (DataMain) -> Unit
+//            val onItemStoreClick: (DataMain) -> Unit
             holder.bind(item,item)
         }
 

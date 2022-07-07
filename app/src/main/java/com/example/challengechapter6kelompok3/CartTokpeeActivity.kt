@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.challengechapter6kelompok3.adapter.CartItemAdapter
@@ -53,13 +54,26 @@ class CartTokpeeActivity : AppCompatActivity() ,CartTokpeeView{
         }
 
         bindingCart.buttonCheckout.setOnClickListener {
-            var tempTotalItem = bindingCart.tvQty.text.toString()
-            var tempTotalPayment = bindingCart.tvItemPrice.text.toString()
-            var intentToCheckout = Intent(this,CheckoutPaymentActivity::class.java)
-            intentToCheckout.putExtra("DATA_USER_USERNAME",tempUsername)
-            intentToCheckout.putExtra("DATA_TOTAL_ITEM", tempTotalItem)
-            intentToCheckout.putExtra("DATA_TOTAL_PAYMENT", tempTotalPayment)
-            startActivity(intentToCheckout)
+            if(tempUsername != "GUEST"){
+                var tempTotalItem = bindingCart.tvQty.text.toString()
+                var tempTotalPayment = bindingCart.tvItemPrice.text.toString()
+                var intentToCheckout = Intent(this,CheckoutPaymentActivity::class.java)
+                intentToCheckout.putExtra("DATA_USER_USERNAME",tempUsername)
+                intentToCheckout.putExtra("DATA_TOTAL_ITEM", tempTotalItem)
+                intentToCheckout.putExtra("DATA_TOTAL_PAYMENT", tempTotalPayment)
+                startActivity(intentToCheckout)
+            }
+            else{
+                AlertDialog.Builder(this)
+                    .setPositiveButton("Ya") { p0, p1 ->
+                        var intentToLogin = Intent(this,LoginActivity::class.java)
+                        startActivity(intentToLogin)
+                    }.setNegativeButton("Tidak") { p0, p1 ->
+                        p0.dismiss()
+                    }.setMessage("Fitur Pembayaran hanya bisa dilakukan jika sudah login terlebih dahulu, Anda Ingin Ke Halaman Login?")
+                    .setTitle("Kembali Ke Login").create()
+                    .show()
+            }
         }
 
     }
@@ -78,24 +92,24 @@ class CartTokpeeActivity : AppCompatActivity() ,CartTokpeeView{
 //    }
 
 
-    private fun getDummyData() : ArrayList<DataCart> {
-        return arrayListOf(
-            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_backpack.png", "Adidas Raptor", 750000,"#FF233D"),
-            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_nmd.png", "Adidas NMD1", 2850000,"#F5CA7B"),
-            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/nike_jacket.png", "Nike Jacket", 300000,"#EEEE9B"),
-            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_backpack.png", "Backpack", 950000,"#98fb98"),
-        )
-    }
+//    private fun getDummyData() : ArrayList<DataCart> {
+//        return arrayListOf(
+//            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_backpack.png", "Adidas Raptor", 750000,"#FF233D"),
+//            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_nmd.png", "Adidas NMD1", 2850000,"#F5CA7B"),
+//            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/nike_jacket.png", "Nike Jacket", 300000,"#EEEE9B"),
+//            DataCart("https://raw.githubusercontent.com/stevenyong96/ChallengeChapter6Kelompok3/master/app/src/main/res/drawable/adidas_backpack.png", "Backpack", 950000,"#98fb98"),
+//        )
+//    }
 
-    fun fetchData(){
+     fun fetchData(){
 //        if(!bindingCart.srlStudent.isRefreshing) showSkeleton()
-
+//
 //        val handler = Handler()
 //        handler.postDelayed({
 //
 //            binding.cpiLoading.hide()
 //
-
+//
 //
 //            hideSkeleton()
 
@@ -133,7 +147,7 @@ class CartTokpeeActivity : AppCompatActivity() ,CartTokpeeView{
         }
     }
 
-    fun concat(s1: String, s2: String): String {
+    override fun concat(s1: String, s2: String): String {
         return s1 + s2
     }
 }

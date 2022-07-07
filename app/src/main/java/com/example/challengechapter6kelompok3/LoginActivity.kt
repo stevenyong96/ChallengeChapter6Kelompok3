@@ -1,9 +1,11 @@
 package com.example.challengechapter6kelompok3
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.challengechapter6kelompok3.database.UserDatabase
@@ -12,6 +14,9 @@ import com.example.challengechapter6kelompok3.viewModel.MainViewModel
 import com.example.challengechapter6kelompok3.viewModel.MyViewModelFactory
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class LoginActivity  : AppCompatActivity() {
 
@@ -44,6 +49,18 @@ class LoginActivity  : AppCompatActivity() {
         binding.ivRegister.setOnClickListener {
             val intentToRegister = Intent(this, RegisterActivity::class.java)
             startActivity(intentToRegister)
+        }
+
+        binding.tvGuest.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setPositiveButton("Ya") { p0, p1 ->
+                    intentToHome.putExtra("DATA_USER_USERNAME","GUEST")
+                    startActivity(intentToHome)
+                }.setNegativeButton("Tidak") { p0, p1 ->
+                    p0.dismiss()
+                }.setMessage("Fitur Pembayaran hanya bisa dilakukan jika sudah login terlebih dahulu, Apakah Bersedia Untuk Lanjut ?")
+                .setTitle("Login As Guest").create()
+                .show()
         }
 
         binding.loginButton.setOnClickListener {
